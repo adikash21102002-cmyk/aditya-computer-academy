@@ -281,3 +281,25 @@ box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 </style>
+<h2>Our Gallery</h2>
+
+<div class="gallery">
+<img src="lab1.jpg">
+<img src="lab2.jpg">
+<img src="lab3.jpg">
+<img src="lab4.jpg">
+</div>
+
+<style>
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+</style>
