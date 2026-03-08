@@ -249,3 +249,35 @@ photo3.jpg
 photo4.jpg
 photo5.jpg
 photo6.jpg
+<section id="gallery">
+<h2 style="text-align:center;">Our Institute Gallery</h2>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
+
+</div>
+
+</section>
+
+<style>
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+padding:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+</style>
