@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+photo1.jpg
+photo2.jpg
+photo3.jpg
+photo4.jpg
+photo5.jpg<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
