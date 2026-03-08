@@ -307,3 +307,88 @@ width:100%;
 border-radius:10px;
 }
 </style>
+<section id="resume">
+<h2 style="text-align:center;">Resume Maker</h2>
+
+<div class="resume-form">
+
+<input type="text" id="rname" placeholder="Full Name">
+<input type="text" id="rphone" placeholder="Mobile Number">
+<input type="text" id="remail" placeholder="Email">
+<input type="text" id="reducation" placeholder="Education">
+<input type="text" id="rskill" placeholder="Skills">
+<input type="text" id="rexperience" placeholder="Experience">
+
+<button onclick="generateResume()">Generate Resume</button>
+<button onclick="window.print()">Download / Print Resume</button>
+
+</div>
+
+<div id="resumeOutput" class="resume-output"></div>
+
+</section>
+
+<style>
+
+.resume-form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:10px;
+padding:20px;
+}
+
+.resume-form input{
+padding:10px;
+font-size:16px;
+}
+
+.resume-form button{
+padding:12px;
+background:#0d6efd;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.resume-output{
+max-width:600px;
+margin:30px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+</style>
+
+<script>
+
+function generateResume(){
+
+let name=document.getElementById("rname").value;
+let phone=document.getElementById("rphone").value;
+let email=document.getElementById("remail").value;
+let education=document.getElementById("reducation").value;
+let skill=document.getElementById("rskill").value;
+let experience=document.getElementById("rexperience").value;
+
+document.getElementById("resumeOutput").innerHTML = `
+<h2>${name}</h2>
+<p><b>Mobile:</b> ${phone}</p>
+<p><b>Email:</b> ${email}</p>
+
+<h3>Education</h3>
+<p>${education}</p>
+
+<h3>Skills</h3>
+<p>${skill}</p>
+
+<h3>Experience</h3>
+<p>${experience}</p>
+`;
+
+}
+
+</script>
