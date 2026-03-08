@@ -392,3 +392,104 @@ document.getElementById("resumeOutput").innerHTML = `
 }
 
 </script>
+<section id="typing-test">
+<h2 style="text-align:center;">Typing Speed Test</h2>
+
+<div class="typing-box">
+
+<select id="language" onchange="changeText()">
+<option value="english">English</option>
+<option value="hindi">Hindi</option>
+</select>
+
+<p id="text">
+Computer education is very important in today's digital world. Practice typing daily to improve your speed and accuracy.
+</p>
+
+<textarea id="typingInput" placeholder="Start typing here..."></textarea>
+
+<button onclick="startTest()">Start Test</button>
+<button onclick="checkSpeed()">Check Speed</button>
+
+<p id="result"></p>
+
+</div>
+
+<style>
+
+.typing-box{
+max-width:600px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.typing-box textarea{
+width:100%;
+height:120px;
+margin-top:10px;
+padding:10px;
+font-size:16px;
+}
+
+.typing-box button{
+margin-top:10px;
+padding:10px;
+background:#0d6efd;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.typing-box select{
+padding:10px;
+margin-bottom:10px;
+}
+
+</style>
+
+<script>
+
+let startTime;
+
+function startTest(){
+startTime=new Date().getTime();
+document.getElementById("typingInput").value="";
+document.getElementById("result").innerHTML="Test Started...";
+}
+
+function checkSpeed(){
+
+let endTime=new Date().getTime();
+let totalTime=(endTime-startTime)/1000;
+
+let typedText=document.getElementById("typingInput").value;
+let wordCount=typedText.split(" ").length;
+
+let speed=Math.round((wordCount/totalTime)*60);
+
+document.getElementById("result").innerHTML="Typing Speed: "+speed+" WPM";
+
+}
+
+function changeText(){
+
+let lang=document.getElementById("language").value;
+
+if(lang=="english"){
+document.getElementById("text").innerHTML=
+"Computer education is very important in today's digital world. Practice typing daily to improve your speed and accuracy.";
+}
+
+else{
+document.getElementById("text").innerHTML=
+"आज के डिजिटल युग में कंप्यूटर शिक्षा बहुत महत्वपूर्ण है। अपनी टाइपिंग गति और सटीकता बढ़ाने के लिए रोज अभ्यास करें।";
+}
+
+}
+
+</script>
+
+</section>
