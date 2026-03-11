@@ -255,3 +255,110 @@ if(typingArea){
         // Optional: Add real-time character count or validation
     });
 }
+// ==================== Resume PDF ====================
+function makeResume(){
+    let name=document.getElementById("rname").value;
+    let dob=document.getElementById("rdob").value;
+    let address=document.getElementById("raddress").value;
+    let phone=document.getElementById("rphone").value;
+    let email=document.getElementById("remail").value;
+    let career=document.getElementById("rcareer").value;
+    let education=document.getElementById("reducation").value;
+    let skills=document.getElementById("rskills").value;
+    let languages=document.getElementById("rlanguages").value;
+    let hobbies=document.getElementById("rhobbies").value;
+    let experience=document.getElementById("rexperience").value;
+    let photo=document.getElementById("rphoto").files[0];
+
+    let photoHTML="";
+    if(photo){
+        let reader=new FileReader();
+        reader.onload=function(e){
+            photoHTML=`<img src="${e.target.result}" style="width:100px;height:100px;border-radius:50%;float:right;margin:10px;">`;
+            document.getElementById("resumeview").innerHTML=buildResumeHTML(photoHTML);
+        }
+        reader.readAsDataURL(photo);
+    } else {
+        document.getElementById("resumeview").innerHTML=buildResumeHTML("");
+    }
+
+    function buildResumeHTML(photoTag){
+        return `<div style="font-family:Arial;padding:10px;color:#333;">
+            ${photoTag}
+            <h1 style="color:#0a4cff;">${name}</h1>
+            <p><strong>DOB:</strong> ${dob} | <strong>Phone:</strong> ${phone} | <strong>Email:</strong> ${email}</p>
+            <p><strong>Address:</strong> ${address}</p>
+            <hr>
+            <h2 style="color:#0a4cff;">Career Objective</h2>
+            <p>${career}</p>
+            <hr>
+            <h2 style="color:#0a4cff;">Education</h2>
+            <p>${education.replace(/\n/g,"<br>")}</p>
+            <hr>
+            <h2 style="color:#0a4cff;">Skills</h2>
+            <p>${skills}</p>
+            <hr>
+            <h2 style="color:#0a4cff;">Languages Known</h2>
+            <p>${languages}</p>
+            <hr>
+            <h2 style="color:#0a4cff;">Hobbies</h2>
+            <p>${hobbies}</p>
+            <hr>
+            <h2 style="color:#0a4cff;">Work Experience / Projects</h2>
+            <p>${experience.replace(/\n/g,"<br>")}</p>
+        </div>`;
+    }
+}
+
+function downloadResume(){
+    let element=document.getElementById("resumeview");
+    let opt={margin:0.5,filename:"Resume.pdf",html2canvas:{scale:2},jsPDF:{unit:"in",format:"letter",orientation:"portrait"}};
+    html2pdf().set(opt).from(element).save();
+}
+
+// ==================== ID Card PDF ====================
+function makeID(){
+    let name=document.getElementById("sname").value;
+    let course=document.getElementById("course").value;
+    let sid=document.getElementById("sid").value;
+    let photo=document.getElementById("photo").files[0];
+
+    document.getElementById("showname").innerHTML="Name: "+name;
+    document.getElementById("showcourse").innerHTML="Course: "+course;
+    document.getElementById("showsid").innerHTML="ID: "+sid;
+
+    if(photo){
+        let reader=new FileReader();
+        reader.onload=function(e){
+            document.getElementById("showphoto").src=e.target.result;
+        }
+        reader.readAsDataURL(photo);
+    }
+}
+
+function downloadID(){
+    let element=document.getElementById("card");
+    let opt={margin:0.5,filename:"Student_ID.pdf",html2canvas:{scale:2},jsPDF:{unit:"in",format:"letter",orientation:"portrait"}};
+    html2pdf().set(opt).from(element).save();
+}
+
+// ==================== Certificate PDF ====================
+function verify(){
+    let n=document.getElementById("certno").value;
+    if(n=="ACA001"){
+        document.getElementById("certresult").innerHTML="Certificate Valid";
+        document.getElementById("certdisplay").style.display="block";
+        document.getElementById("certname").innerHTML="Student: Verified";
+    }else{
+        document.getElementById("certresult").innerHTML="Certificate Not Found";
+        document.getElementById("certdisplay").style.display="none";
+    }
+}
+
+function printCertificate(){
+    let content=document.getElementById("certdisplay").innerHTML;
+    let myWindow=window.open('','Print','height=600,width=800');
+    myWindow.document.write('<html><head><title>Certificate</title></head><body>'+content+'</body></html>');
+    myWindow.document.close();
+    myWindow.print();
+}
