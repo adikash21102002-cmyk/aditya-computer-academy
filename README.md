@@ -1,255 +1,143 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Aditya Computer Academy</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
+
 body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background:#f0f2f5;
+font-family:Arial;
+margin:0;
+background:#f2f2f2;
 }
+
 header{
-    background:#0d6efd;
-    color:white;
-    padding:25px;
-    text-align:center;
+background:#0d6efd;
+color:white;
+text-align:center;
+padding:30px;
 }
+
 nav{
-    background:#111;
-    text-align:center;
-    padding:12px;
+background:#222;
+padding:10px;
+text-align:center;
 }
+
 nav a{
-    color:white;
-    margin:15px;
-    text-decoration:none;
-    font-weight:bold;
+color:white;
+margin:15px;
+text-decoration:none;
+font-weight:bold;
 }
-.banner{
-    background:#0d6efd;
-    color:white;
-    padding:60px;
-    text-align:center;
-}
+
 section{
-    padding:40px;
+padding:40px;
 }
-.title{
-    text-align:center;
-    margin-bottom:30px;
-}
+
 .courses{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
 }
+
 .card{
-    background:white;
-    padding:20px;
-    width:220px;
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-    text-align:center;
+background:white;
+padding:20px;
+width:200px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+text-align:center;
 }
-.card:hover{
-    transform:scale(1.05);
-    transition:0.3s;
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
 }
-form{
-    max-width:500px;
-    margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+
+.gallery img{
+width:100%;
+border-radius:10px;
 }
-input,select{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
+
+.tool{
+background:white;
+padding:20px;
+margin:20px auto;
+max-width:600px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
 }
+
+input,textarea,select{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
 button{
-    background:#0d6efd;
-    color:white;
-    padding:12px;
-    border:none;
-    width:100%;
-    font-size:16px;
-    cursor:pointer;
+padding:10px;
+background:#0d6efd;
+color:white;
+border:none;
+cursor:pointer;
 }
-button:hover{
-    opacity:0.9;
-}
+
 footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
 }
-.tools-section{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-}
-.tool-card{
-    background:white;
-    padding:20px;
-    width:250px;
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-    text-align:center;
-}
-img{
-    width:100%;
-    border-radius:10px;
-}
+
 </style>
+
 </head>
+
 <body>
 
 <header>
+
 <h1>Aditya Computer Academy</h1>
-<p>Kotwa, Varanasi | 📞 9305066046</p>
+<p>Kotwa Varanasi | 9305066046</p>
+
 </header>
 
 <nav>
+
 <a href="#">Home</a>
 <a href="#courses">Courses</a>
-<a href="#admission">Admission</a>
+<a href="#gallery">Gallery</a>
 <a href="#tools">Tools</a>
 <a href="#contact">Contact</a>
+
 </nav>
 
-<div class="banner">
-<h2>Learn Computer – Build Your Future</h2>
-<p>Best Computer Education in Kotwa Varanasi</p>
-<img src="https://via.placeholder.com/1200x300.png?text=Institute+Banner" alt="Banner Image">
-</div>
-
 <section id="courses">
-<h2 class="title">Our Courses</h2>
+
+<h2 align="center">Our Courses</h2>
+
 <div class="courses">
+
 <div class="card">ADCA</div>
 <div class="card">DCA</div>
 <div class="card">CCC</div>
 <div class="card">Tally Prime</div>
 <div class="card">MS Office</div>
 <div class="card">Typing</div>
+
 </div>
+
 </section>
 
-<section id="admission">
-<h2 class="title">Student Admission Form</h2>
-<form>
-<input type="text" placeholder="Student Name" required>
-<input type="text" placeholder="Father Name" required>
-<input type="text" placeholder="Mobile Number" required>
-<select>
-<option>Select Course</option>
-<option>ADCA</option>
-<option>DCA</option>
-<option>CCC</option>
-<option>Tally Prime</option>
-<option>MS Office</option>
-<option>Typing</option>
-</select>
-<label>Aadhaar Card</label>
-<input type="file">
-<label>High School Marksheet</label>
-<input type="file">
-<label>Inter Marksheet</label>
-<input type="file">
-<label>Photo Upload</label>
-<input type="file">
-<button type="submit">Submit Admission</button>
-</form>
-</section>
-
-<section id="tools">
-<h2 class="title">Tools for Students</h2>
-<div class="tools-section">
-
-<div class="tool-card">
-<h3>Calculator</h3>
-<input type="number" id="calc1" placeholder="First Number">
-<input type="number" id="calc2" placeholder="Second Number">
-<button onclick="document.getElementById('calcResult').innerHTML=Number(document.getElementById('calc1').value)+Number(document.getElementById('calc2').value)">Add</button>
-<p id="calcResult"></p>
-</div>
-
-<div class="tool-card">
-<h3>Typing Speed Test</h3>
-<img src="https://via.placeholder.com/250x150.png?text=Typing+Test" alt="Typing Test">
-<p>Practice story typing or game typing.</p>
-<button onclick="alert('Typing Test Coming Soon!')">Start Test</button>
-</div>
-
-<div class="tool-card">
-<h3>Resume Maker</h3>
-<img src="https://via.placeholder.com/250x150.png?text=Resume+Maker" alt="Resume Maker">
-<p>Fill your info and download resume.</p>
-<button onclick="alert('Resume Maker Coming Soon!')">Create Resume</button>
-</div>
-
-<div class="tool-card">
-<h3>Photo Editing</h3>
-<img src="https://via.placeholder.com/250x150.png?text=Photo+Edit" alt="Photo Edit">
-<p>Resize, crop, rotate photos.</p>
-<button onclick="alert('Photo Editing Tool Coming Soon!')">Open Tool</button>
-</div>
-
-<div class="tool-card">
-<h3>PDF Tools</h3>
-<img src="https://via.placeholder.com/250x150.png?text=PDF+Tools" alt="PDF Tools">
-<p>Merge, Split or View PDFs.</p>
-<button onclick="alert('PDF Tools Coming Soon!')">Open PDF Tools</button>
-</div>
-
-<div class="tool-card">
-<h3>Course Notes</h3>
-<img src="https://via.placeholder.com/250x150.png?text=Notes" alt="Course Notes">
-<p>Download ADCA, DCA, CCC, Tally, MS Office notes.</p>
-<button onclick="alert('Notes Download Coming Soon!')">Download Notes</button>
-</div>
-
-<div class="tool-card">
-<h3>Certificate Verification</h3>
-<img src="https://via.placeholder.com/250x150.png?text=Certificate" alt="Certificate">
-<p>Enter certificate ID to verify.</p>
-<input type="text" placeholder="Certificate ID">
-<button onclick="alert('Verification Coming Soon!')">Verify</button>
-</div>
-
-</div>
-</section>
-
-<section id="contact">
-<h2 class="title">Contact Us</h2>
-<p style="text-align:center;">
-Aditya Computer Academy<br>
-Kotwa, Varanasi<br>
-📞 9305066046
-</p>
-</section>
-
-<footer>
-© 2026 Aditya Computer Academy
-</footer>
-
-</body>
-</html>
-photo1.jpg
-photo2.jpg
-photo3.jpg
-photo4.jpg
-photo5.jpg
-photo6.jpg
 <section id="gallery">
-<h2 style="text-align:center;">Our Institute Gallery</h2>
+
+<h2 align="center">Institute Gallery</h2>
 
 <div class="gallery">
 
@@ -257,215 +145,121 @@ photo6.jpg
 <img src="photo2.jpg">
 <img src="photo3.jpg">
 <img src="photo4.jpg">
-<img src="photo5.jpg">
-<img src="photo6.jpg">
 
 </div>
 
 </section>
 
-<style>
+<section id="tools">
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-padding:20px;
-}
+<h2 align="center">Student Tools</h2>
 
-.gallery img{
-width:100%;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
+<div class="tool">
 
-</style>
-<h2>Our Gallery</h2>
+<h3>Calculator</h3>
 
-<div class="gallery">
-<img src="lab1.jpg">
-<img src="lab2.jpg">
-<img src="lab3.jpg">
-<img src="lab4.jpg">
-</div>
+<input type="number" id="n1" placeholder="First number">
+<input type="number" id="n2" placeholder="Second number">
 
-<style>
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:20px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-}
-</style>
-<section id="resume">
-<h2 style="text-align:center;">Resume Maker</h2>
-
-<div class="resume-form">
-
-<input type="text" id="rname" placeholder="Full Name">
-<input type="text" id="rphone" placeholder="Mobile Number">
-<input type="text" id="remail" placeholder="Email">
-<input type="text" id="reducation" placeholder="Education">
-<input type="text" id="rskill" placeholder="Skills">
-<input type="text" id="rexperience" placeholder="Experience">
-
-<button onclick="generateResume()">Generate Resume</button>
-<button onclick="window.print()">Download / Print Resume</button>
-
-</div>
-
-<div id="resumeOutput" class="resume-output"></div>
-
-</section>
-
-<style>
-
-.resume-form{
-max-width:500px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:10px;
-padding:20px;
-}
-
-.resume-form input{
-padding:10px;
-font-size:16px;
-}
-
-.resume-form button{
-padding:12px;
-background:#0d6efd;
-color:white;
-border:none;
-cursor:pointer;
-}
-
-.resume-output{
-max-width:600px;
-margin:30px auto;
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-</style>
-
-<script>
-
-function generateResume(){
-
-let name=document.getElementById("rname").value;
-let phone=document.getElementById("rphone").value;
-let email=document.getElementById("remail").value;
-let education=document.getElementById("reducation").value;
-let skill=document.getElementById("rskill").value;
-let experience=document.getElementById("rexperience").value;
-
-document.getElementById("resumeOutput").innerHTML = `
-<h2>${name}</h2>
-<p><b>Mobile:</b> ${phone}</p>
-<p><b>Email:</b> ${email}</p>
-
-<h3>Education</h3>
-<p>${education}</p>
-
-<h3>Skills</h3>
-<p>${skill}</p>
-
-<h3>Experience</h3>
-<p>${experience}</p>
-`;
-
-}
-
-</script>
-<section id="typing-test">
-<h2 style="text-align:center;">Typing Speed Test</h2>
-
-<div class="typing-box">
-
-<select id="language" onchange="changeText()">
-<option value="english">English</option>
-<option value="hindi">Hindi</option>
-</select>
-
-<p id="text">
-Computer education is very important in today's digital world. Practice typing daily to improve your speed and accuracy.
-</p>
-
-<textarea id="typingInput" placeholder="Start typing here..."></textarea>
-
-<button onclick="startTest()">Start Test</button>
-<button onclick="checkSpeed()">Check Speed</button>
+<button onclick="calc()">Add</button>
 
 <p id="result"></p>
 
 </div>
 
-<style>
+<div class="tool">
 
-.typing-box{
-max-width:600px;
-margin:auto;
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
+<h3>Typing Speed Test</h3>
 
-.typing-box textarea{
-width:100%;
-height:120px;
-margin-top:10px;
-padding:10px;
-font-size:16px;
-}
+<select id="language" onchange="changeText()">
 
-.typing-box button{
-margin-top:10px;
-padding:10px;
-background:#0d6efd;
-color:white;
-border:none;
-cursor:pointer;
-}
+<option value="english">English</option>
+<option value="hindi">Hindi</option>
 
-.typing-box select{
-padding:10px;
-margin-bottom:10px;
-}
+</select>
 
-</style>
+<p id="text">
+Computer education is very important in today's digital world.
+</p>
+
+<textarea id="typingInput"></textarea>
+
+<button onclick="startTest()">Start</button>
+<button onclick="checkSpeed()">Check Speed</button>
+
+<p id="speed"></p>
+
+</div>
+
+<div class="tool">
+
+<h3>Resume Maker</h3>
+
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="phone" placeholder="Mobile">
+<input type="text" id="edu" placeholder="Education">
+<input type="text" id="skill" placeholder="Skills">
+
+<button onclick="resume()">Generate Resume</button>
+
+<div id="resumeOutput"></div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 align="center">Contact</h2>
+
+<p align="center">
+
+Aditya Computer Academy<br>
+Kotwa Varanasi<br>
+Phone: 9305066046
+
+</p>
+
+</section>
+
+<footer>
+
+© Aditya Computer Academy
+
+</footer>
 
 <script>
+
+function calc(){
+
+let a=document.getElementById("n1").value;
+let b=document.getElementById("n2").value;
+
+document.getElementById("result").innerHTML=Number(a)+Number(b);
+
+}
 
 let startTime;
 
 function startTest(){
+
 startTime=new Date().getTime();
-document.getElementById("typingInput").value="";
-document.getElementById("result").innerHTML="Test Started...";
+
 }
 
 function checkSpeed(){
 
 let endTime=new Date().getTime();
-let totalTime=(endTime-startTime)/1000;
 
-let typedText=document.getElementById("typingInput").value;
-let wordCount=typedText.split(" ").length;
+let total=(endTime-startTime)/1000;
 
-let speed=Math.round((wordCount/totalTime)*60);
+let text=document.getElementById("typingInput").value;
 
-document.getElementById("result").innerHTML="Typing Speed: "+speed+" WPM";
+let words=text.split(" ").length;
+
+let speed=Math.round((words/total)*60);
+
+document.getElementById("speed").innerHTML="Speed: "+speed+" WPM";
 
 }
 
@@ -473,18 +267,37 @@ function changeText(){
 
 let lang=document.getElementById("language").value;
 
-if(lang=="english"){
+if(lang=="hindi"){
+
 document.getElementById("text").innerHTML=
-"Computer education is very important in today's digital world. Practice typing daily to improve your speed and accuracy.";
+"कंप्यूटर शिक्षा आज के समय में बहुत महत्वपूर्ण है।";
+
+}else{
+
+document.getElementById("text").innerHTML=
+"Computer education is very important in today's digital world.";
+
 }
 
-else{
-document.getElementById("text").innerHTML=
-"आज के डिजिटल युग में कंप्यूटर शिक्षा बहुत महत्वपूर्ण है। अपनी टाइपिंग गति और सटीकता बढ़ाने के लिए रोज अभ्यास करें।";
 }
+
+function resume(){
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let edu=document.getElementById("edu").value;
+let skill=document.getElementById("skill").value;
+
+document.getElementById("resumeOutput").innerHTML=
+
+"<h3>"+name+"</h3>"+
+"<p>Mobile: "+phone+"</p>"+
+"<p>Education: "+edu+"</p>"+
+"<p>Skills: "+skill+"</p>";
 
 }
 
 </script>
 
-</section>
+</body>
+</html>
