@@ -94,3 +94,48 @@ document.getElementById("showphoto").src=e.target.result
 reader.readAsDataURL(photo)
 
 }
+// Generate Resume HTML
+function makeResume(){
+let name=document.getElementById("rname").value
+let dob=document.getElementById("rdob").value
+let address=document.getElementById("raddress").value
+let phone=document.getElementById("rphone").value
+let email=document.getElementById("remail").value
+let career=document.getElementById("rcareer").value
+let education=document.getElementById("reducation").value
+let skills=document.getElementById("rskills").value
+let languages=document.getElementById("rlanguages").value
+let hobbies=document.getElementById("rhobbies").value
+let experience=document.getElementById("rexperience").value
+
+document.getElementById("resumeview").innerHTML=
+`<h2 style="text-align:center;">${name}</h2>
+<p><strong>Date of Birth:</strong> ${dob}</p>
+<p><strong>Address:</strong> ${address}</p>
+<p><strong>Phone:</strong> ${phone} | <strong>Email:</strong> ${email}</p>
+<hr>
+<h3>Career Objective</h3>
+<p>${career}</p>
+<hr>
+<h3>Education</h3>
+<p>${education.replace(/\n/g,"<br>")}</p>
+<hr>
+<h3>Skills</h3>
+<p>${skills}</p>
+<hr>
+<h3>Languages Known</h3>
+<p>${languages}</p>
+<hr>
+<h3>Hobbies</h3>
+<p>${hobbies}</p>
+<hr>
+<h3>Work Experience / Projects</h3>
+<p>${experience.replace(/\n/g,"<br>")}</p>`
+}
+
+// Download Resume as PDF
+function downloadResume(){
+let element=document.getElementById("resumeview")
+let opt={margin:0.5,filename:"Resume.pdf",html2canvas:{scale:2},jsPDF:{unit:"in",format:"letter",orientation:"portrait"}}
+html2pdf().set(opt).from(element).save()
+}
