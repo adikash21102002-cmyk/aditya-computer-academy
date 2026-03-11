@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>Aditya Computer Academy</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
-font-family:Arial;
+font-family: Arial;
 margin:0;
 background:#f2f2f2;
 }
 
 header{
-background:#0d6efd;
+background:#0033cc;
 color:white;
+padding:20px;
 text-align:center;
-padding:30px;
 }
 
 nav{
-background:#222;
+background:black;
 padding:10px;
 text-align:center;
 }
@@ -35,265 +32,139 @@ font-weight:bold;
 }
 
 section{
-padding:40px;
+padding:20px;
 }
 
-.courses{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-}
-
-.card{
+.box{
 background:white;
 padding:20px;
-width:200px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.2);
-text-align:center;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-}
-
-.tool{
-background:white;
-padding:20px;
-margin:20px auto;
-max-width:600px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.2);
-}
-
-input,textarea,select{
-width:100%;
-padding:10px;
-margin:10px 0;
-}
-
-button{
-padding:10px;
-background:#0d6efd;
-color:white;
-border:none;
-cursor:pointer;
+margin:20px;
+box-shadow:0 0 10px gray;
 }
 
 footer{
-background:#222;
+background:#0033cc;
 color:white;
 text-align:center;
-padding:20px;
+padding:10px;
+}
+
+input,button{
+padding:10px;
+margin:5px;
+width:90%;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <h1>Aditya Computer Academy</h1>
-<p>Kotwa Varanasi | 9305066046</p>
-
+<p>Shivpur, Varanasi | 6391264205</p>
 </header>
 
 <nav>
-
-<a href="#">Home</a>
-<a href="#courses">Courses</a>
-<a href="#gallery">Gallery</a>
-<a href="#tools">Tools</a>
+<a href="#home">Home</a>
+<a href="#course">Courses</a>
+<a href="#admission">Admission</a>
+<a href="#verify">Certificate</a>
 <a href="#contact">Contact</a>
-
 </nav>
 
-<section id="courses">
-
-<h2 align="center">Our Courses</h2>
-
-<div class="courses">
-
-<div class="card">ADCA</div>
-<div class="card">DCA</div>
-<div class="card">CCC</div>
-<div class="card">Tally Prime</div>
-<div class="card">MS Office</div>
-<div class="card">Typing</div>
-
+<section id="home">
+<div class="box">
+<h2>Welcome</h2>
+<p>Welcome to Aditya Computer Academy. Best Computer Training Institute in Shivpur Varanasi.</p>
 </div>
-
 </section>
 
-<section id="gallery">
-
-<h2 align="center">Institute Gallery</h2>
-
-<div class="gallery">
-
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
-
+<section id="course">
+<div class="box">
+<h2>Our Courses</h2>
+<ul>
+<li>CCC</li>
+<li>O Level</li>
+<li>ADCA</li>
+<li>DCA</li>
+<li>Tally</li>
+<li>Basic Computer</li>
+</ul>
 </div>
-
 </section>
 
-<section id="tools">
+<section id="admission">
+<div class="box">
+<h2>Online Admission</h2>
 
-<h2 align="center">Student Tools</h2>
+<input type="text" placeholder="Student Name">
+<input type="text" placeholder="Mobile Number">
+<input type="text" placeholder="Course Name">
 
-<div class="tool">
+<button>Submit</button>
 
-<h3>Calculator</h3>
+</div>
+</section>
 
-<input type="number" id="n1" placeholder="First number">
-<input type="number" id="n2" placeholder="Second number">
+<section id="verify">
+<div class="box">
+<h2>Certificate Verification</h2>
 
-<button onclick="calc()">Add</button>
+<input type="text" placeholder="Enter Certificate Number">
+
+<button onclick="verify()">Verify</button>
 
 <p id="result"></p>
 
 </div>
+</section>
 
-<div class="tool">
+<section>
+<div class="box">
 
-<h3>Typing Speed Test</h3>
+<h2>YouTube Videos</h2>
 
-<select id="language" onchange="changeText()">
-
-<option value="english">English</option>
-<option value="hindi">Hindi</option>
-
-</select>
-
-<p id="text">
-Computer education is very important in today's digital world.
-</p>
-
-<textarea id="typingInput"></textarea>
-
-<button onclick="startTest()">Start</button>
-<button onclick="checkSpeed()">Check Speed</button>
-
-<p id="speed"></p>
+<iframe width="100%" height="315"
+src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+</iframe>
 
 </div>
-
-<div class="tool">
-
-<h3>Resume Maker</h3>
-
-<input type="text" id="name" placeholder="Name">
-<input type="text" id="phone" placeholder="Mobile">
-<input type="text" id="edu" placeholder="Education">
-<input type="text" id="skill" placeholder="Skills">
-
-<button onclick="resume()">Generate Resume</button>
-
-<div id="resumeOutput"></div>
-
-</div>
-
 </section>
 
 <section id="contact">
+<div class="box">
 
-<h2 align="center">Contact</h2>
+<h2>Contact Us</h2>
 
-<p align="center">
+<p>Aditya Computer Academy</p>
+<p>Shivpur, Varanasi</p>
+<p>Phone: 6391264205</p>
 
-Aditya Computer Academy<br>
-Kotwa Varanasi<br>
-Phone: 9305066046
-
-</p>
-
+</div>
 </section>
 
 <footer>
-
-© Aditya Computer Academy
-
+© 2026 Aditya Computer Academy
 </footer>
 
 <script>
 
-function calc(){
+function verify(){
 
-let a=document.getElementById("n1").value;
-let b=document.getElementById("n2").value;
+let number=document.querySelector("#verify input").value
 
-document.getElementById("result").innerHTML=Number(a)+Number(b);
+if(number=="12345"){
 
-}
-
-let startTime;
-
-function startTest(){
-
-startTime=new Date().getTime();
+document.getElementById("result").innerHTML="Certificate Valid"
 
 }
 
-function checkSpeed(){
+else{
 
-let endTime=new Date().getTime();
-
-let total=(endTime-startTime)/1000;
-
-let text=document.getElementById("typingInput").value;
-
-let words=text.split(" ").length;
-
-let speed=Math.round((words/total)*60);
-
-document.getElementById("speed").innerHTML="Speed: "+speed+" WPM";
+document.getElementById("result").innerHTML="Certificate Not Found"
 
 }
-
-function changeText(){
-
-let lang=document.getElementById("language").value;
-
-if(lang=="hindi"){
-
-document.getElementById("text").innerHTML=
-"कंप्यूटर शिक्षा आज के समय में बहुत महत्वपूर्ण है।";
-
-}else{
-
-document.getElementById("text").innerHTML=
-"Computer education is very important in today's digital world.";
-
-}
-
-}
-
-function resume(){
-
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let edu=document.getElementById("edu").value;
-let skill=document.getElementById("skill").value;
-
-document.getElementById("resumeOutput").innerHTML=
-
-"<h3>"+name+"</h3>"+
-"<p>Mobile: "+phone+"</p>"+
-"<p>Education: "+edu+"</p>"+
-"<p>Skills: "+skill+"</p>";
 
 }
 
