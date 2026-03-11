@@ -1,117 +1,254 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Aditya Computer Academy</title>
+
 <link rel="stylesheet" href="style.css">
+
 <style>
-<script src="script.js"></script>
+
 body{
-font-family: Arial;
+font-family:Arial;
 margin:0;
-background:#f2f2f2;
+background:#f5f5f5;
 }
 
 header{
-background:#0033cc;
+background:#0a4cff;
 color:white;
-padding:20px;
 text-align:center;
+padding:20px;
 }
 
 nav{
-background:black;
-padding:10px;
+background:#111;
 text-align:center;
+padding:10px;
 }
 
 nav a{
 color:white;
-margin:15px;
+margin:10px;
 text-decoration:none;
 font-weight:bold;
 }
 
 section{
 padding:20px;
-}
-
-.box{
 background:white;
-padding:20px;
 margin:20px;
-box-shadow:0 0 10px gray;
+border-radius:6px;
 }
 
-footer{
-background:#0033cc;
+input,textarea{
+width:100%;
+padding:10px;
+margin:5px 0;
+}
+
+button{
+padding:10px 20px;
+background:#0a4cff;
 color:white;
-text-align:center;
-padding:10px;
+border:none;
+cursor:pointer;
 }
 
-input,button{
+.slider img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+#card{
+border:1px solid black;
 padding:10px;
-margin:5px;
-width:90%;
+width:250px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <h1>Aditya Computer Academy</h1>
-<p>Shivpur, Varanasi | 6391264205</p>
+
+<p>Shivpur Varanasi | 6391264205</p>
+
 </header>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Courses</a>
-<a href="#">Admission</a>
-<a href="#">Contact</a>
+
+<a href="#about">About</a>
+<a href="#courses">Courses</a>
+<a href="#admission">Admission</a>
+<a href="#certificate">Certificate</a>
+<a href="#result">Result</a>
+<a href="#gallery">Gallery</a>
+<a href="#typing">Typing</a>
+<a href="#resume">Resume</a>
+<a href="#idcard">ID Card</a>
+<a href="#contact">Contact</a>
+
 </nav>
 
-<section>
-<div class="box">
-<h2>Welcome</h2>
-<p>Welcome to Aditya Computer Academy. Best Computer Training Institute in Shivpur Varanasi.</p>
-</div>
+<section class="slider">
 
-<div class="box">
-<h2>Our Courses</h2>
+<img id="slide" src="https://via.placeholder.com/800x250">
+
+</section>
+
+<section id="about">
+
+<h2>About Institute</h2>
+
+<p>Aditya Computer Academy is a computer training institute in Shivpur Varanasi.</p>
+
+</section>
+
+<section id="courses">
+
+<h2>Courses</h2>
+
 <ul>
+
 <li>CCC</li>
-<li>O Level</li>
 <li>ADCA</li>
 <li>DCA</li>
 <li>Tally</li>
-<li>Basic Computer</li>
+<li>O Level</li>
+
 </ul>
-</div>
 
-<div class="box">
+</section>
+
+<section id="admission">
+
 <h2>Online Admission</h2>
-<input type="text" placeholder="Student Name">
-<input type="text" placeholder="Mobile Number">
-<input type="text" placeholder="Course Name">
-<button>Submit</button>
-</div>
 
-<div class="box">
-<h2>Contact Us</h2>
-<p>Aditya Computer Academy</p>
-<p>Shivpur, Varanasi</p>
-<p>Mobile: 6391264205</p>
+<input placeholder="Student Name">
+<input placeholder="Mobile Number">
+<input placeholder="Course">
+
+<button onclick="submitForm()">Submit</button>
+
+</section>
+
+<section id="certificate">
+
+<h2>Certificate Verification</h2>
+
+<input id="certno">
+
+<button onclick="verify()">Verify</button>
+
+<p id="certresult"></p>
+
+</section>
+
+<section id="result">
+
+<h2>Student Result</h2>
+
+<input id="roll">
+
+<button onclick="result()">Check</button>
+
+<p id="resultshow"></p>
+
+</section>
+
+<section id="gallery">
+
+<h2>Photo Gallery</h2>
+
+<img src="https://via.placeholder.com/200">
+<img src="https://via.placeholder.com/200">
+<img src="https://via.placeholder.com/200">
+
+</section>
+
+<section>
+
+<h2>YouTube Channel</h2>
+
+<iframe width="100%" height="315"
+src="https://www.youtube.com/embed?listType=user_uploads&list=adityakashyap9172">
+</iframe>
+
+</section>
+
+<section id="typing">
+
+<h2>Hindi / English Typing Tool</h2>
+
+<textarea rows="6" placeholder="Type here..."></textarea>
+
+</section>
+
+<section id="resume">
+
+<h2>Resume Creator</h2>
+
+<input id="rname" placeholder="Name">
+<input id="rqual" placeholder="Qualification">
+<input id="rskill" placeholder="Skills">
+
+<button onclick="makeResume()">Generate Resume</button>
+
+<div id="resumeview"></div>
+
+</section>
+
+<section id="idcard">
+
+<h2>Student ID Card Generator</h2>
+
+<input id="sname" placeholder="Student Name">
+<input id="course" placeholder="Course">
+<input id="sid" placeholder="Student ID">
+
+<input type="file" id="photo">
+
+<button onclick="makeID()">Generate ID</button>
+
+<div id="card">
+
+<h3>Aditya Computer Academy</h3>
+
+<img id="showphoto" width="80">
+
+<p id="showname"></p>
+<p id="showcourse"></p>
+<p id="showsid"></p>
+
 </div>
 
 </section>
 
-<footer>
-© 2026 Aditya Computer Academy
-</footer>
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>Aditya Computer Academy</p>
+<p>Shivpur Varanasi</p>
+<p>Phone: 6391264205</p>
+
+<iframe
+src="https://maps.google.com/maps?q=shivpur%20varanasi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%" height="300">
+</iframe>
+
+</section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
