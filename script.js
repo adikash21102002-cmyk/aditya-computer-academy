@@ -96,7 +96,7 @@ reader.readAsDataURL(photo)
 }
 // Generate Resume HTML
 function makeResume(){
-let name=document.getElementById("rname").value
+let name=document.getElementntById("rname").value
 let dob=document.getElementById("rdob").value
 let address=document.getElementById("raddress").value
 let phone=document.getElementById("rphone").value
@@ -361,4 +361,23 @@ function printCertificate(){
     myWindow.document.write('<html><head><title>Certificate</title></head><body>'+content+'</body></html>');
     myWindow.document.close();
     myWindow.print();
+let photos=[
+"coaching1.jpg",
+"coaching2.jpg",
+"coaching3.jpg",
+"coaching4.jpg"
+];
+
+let x=0;
+
+setInterval(function(){
+
+x++;
+
+if(x>=photos.length){
+x=0;
 }
+
+document.getElementById("slider").src=photos[x];
+
+},3000);}
