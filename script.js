@@ -361,23 +361,23 @@ function printCertificate(){
     myWindow.document.write('<html><head><title>Certificate</title></head><body>'+content+'</body></html>');
     myWindow.document.close();
     myWindow.print();
-let photos=[
-"1751095766607.jpg",
-"1751097105104.jpg",
+
+let photos = [
+"1738496830107.jpg",
 "1757075756800.jpg",
-"1757086609255.jpg"
+"1757086969129.jpg"
 ];
 
-let x=0;
+let x = 0;
 
 setInterval(function(){
 
 x++;
 
-if(x>=photos.length){
-x=0;
+if(x >= photos.length){
+x = 0;
 }
 
-document.getElementById("slider").src=photos[x];
+document.getElementById("slider").src = photos[x];
 
 },3000);
