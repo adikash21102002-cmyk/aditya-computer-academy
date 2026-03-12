@@ -381,3 +381,4 @@ x = 0;
 document.getElementById("slider").src = photos[x];
 
 },3000);
+    
