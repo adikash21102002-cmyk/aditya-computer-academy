@@ -1,36 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aditya Computer Academy</title>
+<head>
 
-<!-- PDF library (html2pdf.js) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-<style>
-/* यहाँ तुम्हारा CSS रहेगा */
-</style>
-</head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Aditya Computer Academy</title>
 
-<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-<script src="script.js"></script>
-body{<h2 style="text-align:center;">Our Coaching Gallery</h2>
 
-<div style="text-align:center;">
-<img id="slider" src="coaching1.jpg" width="500" style="border-radius:10px;">
-</div>
-
-<div style="text-align:center;">
-<img src="coaching.jpg" width="500" style="border-radius:10px;">
-</div>
+body{
 font-family:Arial;
 margin:0;
 background:#f5f5f5;
@@ -77,18 +58,6 @@ border:none;
 cursor:pointer;
 }
 
-.slider img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-#card{
-border:1px solid black;
-padding:10px;
-width:250px;
-}
-
 </style>
 
 </head>
@@ -98,7 +67,6 @@ width:250px;
 <header>
 
 <h1>Aditya Computer Academy</h1>
-
 <p>Shivpur Varanasi | 6391264205</p>
 
 </header>
@@ -110,17 +78,24 @@ width:250px;
 <a href="#admission">Admission</a>
 <a href="#certificate">Certificate</a>
 <a href="#result">Result</a>
-<a href="#gallery">Gallery</a>
-<a href="#typing">Typing</a>
+<a href="#typing">Typing Test</a>
+<a href="#login">Student Login</a>
+<a href="#exam">Online Exam</a>
 <a href="#resume">Resume</a>
 <a href="#idcard">ID Card</a>
 <a href="#contact">Contact</a>
 
 </nav>
 
-<section class="slider">
+<section>
 
-<img id="slide" src="https://via.placeholder.com/800x250">
+<h2 style="text-align:center;">Our Coaching Gallery</h2>
+
+<div style="text-align:center;">
+
+<img id="slider" src="1738496830107.jpg" width="500">
+
+</div>
 
 </section>
 
@@ -184,87 +159,66 @@ width:250px;
 
 </section>
 
-<section id="gallery">
-<h2>Photo Gallery</h2>
-  
-<Photo style="text-align:center;">
-<img id="slider" src="1738496830107.jpg" width="300">
-</div>
-
-
-
-</section>
-
-<section>
-
-<section>
-<h2>YouTube Channel</h2>
-
-<iframe width="100%" height="315"
-src="https://www.youtube.com/embed?listType=user_uploads&list=UCuPlA7Y1Qmfw6QZsh1r7Wmg"
-title="Aditya Kashyap YouTube Channel"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen>
-</iframe>
-
-</section>
-
-
-
-
-</section>
-
 <section id="typing">
 
-<h2>Hindi / English Typing Tool</h2>
+<h2>Typing Test</h2>
 
-<textarea rows="6" placeholder="Type here..."></textarea>
+<p id="text">The quick brown fox jumps over the lazy dog</p>
+
+<textarea id="typingbox"></textarea>
+
+<button onclick="checkTyping()">Check Typing</button>
+
+<p id="resulttyping"></p>
+
+</section>
+
+<section id="login">
+
+<h2>Student Login</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p id="loginresult"></p>
+
+</section>
+
+<section id="exam">
+
+<h2>Online Exam</h2>
+
+<p>Computer is an ?</p>
+
+<button onclick="checkExam('a')">Machine</button>
+<button onclick="checkExam('b')">Animal</button>
+<button onclick="checkExam('c')">Food</button>
+
+<p id="examresult"></p>
 
 </section>
 
 <section id="resume">
-<h2>Resume Creator</h2>
-
-<!-- Personal Details -->
-<input id="rname" placeholder="Full Name">
-<input id="rdob" placeholder="Date of Birth">
-<input id="raddress" placeholder="Address">
-<input id="rphone" placeholder="Phone Number">
-<input id="remail" placeholder="Email">
-
-<!-- Career Objective -->
-<textarea id="rcareer" rows="2" placeholder="Career Objective"></textarea>
-
-<!-- Education -->
-<textarea id="reducation" rows="4" placeholder="Education (10th, 12th, Graduation...)"></textarea>
-
-<!-- Skills -->
-<input id="rskills" placeholder="Skills (comma separated)">
-
-<!-- Languages -->
-<input id="rlanguages" placeholder="Languages Known">
-
-<!-- Hobbies -->
-<input id="rhobbies" placeholder="Hobbies">
-
-<!-- Work Experience / Projects -->
-<textarea id="rexperience" rows="4" placeholder="Work Experience / Projects (if any)"></textarea>
-
-<button onclick="makeResume()">Generate Resume</button>
-<button onclick="downloadResume()">Download PDF</button>
-
-<div id="resumeview" style="margin-top:20px;padding:10px;border:1px solid black;width:500px;background:#f9f9f9;"></div>
-
-</section>
 
 <h2>Resume Creator</h2>
 
 <input id="rname" placeholder="Name">
-<input id="rqual" placeholder="Qualification">
-<input id="rskill" placeholder="Skills">
+<input id="rdob" placeholder="DOB">
+<input id="raddress" placeholder="Address">
+<input id="rphone" placeholder="Phone">
+<input id="remail" placeholder="Email">
+
+<textarea id="rcareer" placeholder="Career Objective"></textarea>
+
+<textarea id="reducation" placeholder="Education"></textarea>
+
+<input id="rskills" placeholder="Skills">
 
 <button onclick="makeResume()">Generate Resume</button>
+
+<button onclick="downloadResume()">Download PDF</button>
 
 <div id="resumeview"></div>
 
@@ -272,31 +226,7 @@ allowfullscreen>
 
 <section id="idcard">
 
-<h2>Student ID Card Generator</h2>
-
-<input id="sname" placeholder="Student Name">
-<input id="course" placeholder="Course">
-<input id="sid" placeholder="Student ID">
-<input type="file" id="photo">
-
-<button onclick="makeID()">Generate ID</button>
-<button onclick="downloadID()">Download ID PDF</button>
-
-<div id="card" style="margin-top:20px;border:1px solid black;padding:10px;width:250px">
-
-<h3>Aditya Computer Academy</h3>
-
-<img id="showphoto" width="80">
-
-<p id="showname"></p>
-<p id="showcourse"></p>
-<p id="showsid"></p>
-
-</div>
-
-</section>
-
-<h2>Student ID Card Generator</h2>
+<h2>ID Card Generator</h2>
 
 <input id="sname" placeholder="Student Name">
 <input id="course" placeholder="Course">
@@ -305,6 +235,8 @@ allowfullscreen>
 <input type="file" id="photo">
 
 <button onclick="makeID()">Generate ID</button>
+
+<button onclick="downloadID()">Download PDF</button>
 
 <div id="card">
 
@@ -328,13 +260,9 @@ allowfullscreen>
 <p>Shivpur Varanasi</p>
 <p>Phone: 6391264205</p>
 
-<iframe
-src="https://maps.google.com/maps?q=shivpur%20varanasi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%" height="300">
-</iframe>
-
 </section>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
