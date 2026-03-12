@@ -362,10 +362,10 @@ function printCertificate(){
     myWindow.document.close();
     myWindow.print();
 let photos=[
-"coaching1.jpg",
-"coaching2.jpg",
-"coaching3.jpg",
-"coaching4.jpg"
+"1751095766607.jpg",
+"1751097105104.jpg",
+"1757075756800.jpg",
+"1757086609255.jpg"
 ];
 
 let x=0;
@@ -380,4 +380,4 @@ x=0;
 
 document.getElementById("slider").src=photos[x];
 
-},3000);}
+},3000);
