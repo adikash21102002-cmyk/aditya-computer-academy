@@ -393,3 +393,11 @@ let msg="New Admission%0AName: "+name+"%0AMobile: "+mobile+"%0ACourse: "+course;
 window.open("https://wa.me/916391264205?text="+msg);
 
 }
+function openImage(img){
+document.getElementById("popup").style.display="block";
+document.getElementById("popupimg").src=img.src;
+}
+
+function closeImage(){
+document.getElementById("popup").style.display="none";
+}
