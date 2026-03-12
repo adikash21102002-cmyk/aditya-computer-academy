@@ -1,221 +1,343 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Aditya Computer Academy</title>
-
+<!-- PDF library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
 <style>
-
 body{
-font-family:Arial;
-margin:0;
-background:#f5f5f5;
+    font-family: Arial;
+    margin:0;
+    background:#e8f5e9; /* Light green background */
 }
-
 header{
-background:#0a4cff;
-color:white;
-text-align:center;
-padding:20px;
+    background:#0a4cff;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
-
 nav{
-background:#111;
-text-align:center;
-padding:10px;
+    background:#111;
+    text-align:center;
+    padding:10px;
 }
-
 nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-font-weight:bold;
+    color:white;
+    margin:10px;
+    text-decoration:none;
+    font-weight:bold;
 }
-
 section{
-padding:20px;
-background:white;
-margin:20px;
-border-radius:6px;
+    padding:20px;
+    background:white;
+    margin:20px;
+    border-radius:6px;
 }
-
-input,textarea{
-width:100%;
-padding:10px;
-margin:5px 0;
+input,textarea,button{
+    width:100%;
+    padding:10px;
+    margin:5px 0;
 }
-
 button{
-padding:10px 20px;
-background:#0a4cff;
-color:white;
-border:none;
-cursor:pointer;
+    background:#0a4cff;
+    color:white;
+    border:none;
+    cursor:pointer;
 }
-
+.slider img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+#card{
+    border:1px solid black;
+    padding:10px;
+    width:250px;
+}
+.gallery img{
+    width:150px !important;
+    height:100px !important;
+    object-fit:cover;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+    margin:5px;
+}
+#popup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    text-align:center;
+}
+#popupimg{
+    max-width:90%;
+    max-height:80%;
+    margin-top:5%;
+    border-radius:8px;
+}
 </style>
-
 </head>
-
 <body>
 
 <header>
-
 <h1>Aditya Computer Academy</h1>
-
 <p>Shivpur Varanasi | 6391264205</p>
-
 </header>
 
 <nav>
-
 <a href="#about">About</a>
 <a href="#courses">Courses</a>
+<a href="#admission">Admission</a>
+<a href="#certificate">Certificate</a>
+<a href="#result">Result</a>
 <a href="#gallery">Gallery</a>
+<a href="#typing">Typing</a>
 <a href="#resume">Resume</a>
 <a href="#idcard">ID Card</a>
+<a href="#phototool">Photo Tools</a>
 <a href="#contact">Contact</a>
-
 </nav>
 
-<section id="about">
-
-<h2>About Institute</h2>
-
-<p>Aditya Computer Academy is a computer training institute in Shivpur Varanasi.</p>
-
+<!-- Slider -->
+<section class="slider">
+<img id="slider" src="1738496830107.jpg">
 </section>
 
+<!-- About -->
+<section id="about">
+<h2>About Institute</h2>
+<p>Aditya Computer Academy is a computer training institute in Shivpur Varanasi.</p>
+</section>
+
+<!-- Courses -->
 <section id="courses">
-
-<h2>Courses</h2>
-
+<h2>Our Courses</h2>
 <ul>
-
 <li>CCC</li>
 <li>DCA</li>
 <li>ADCA</li>
 <li>Tally</li>
-
+<li>O Level</li>
+<li>Typing Hindi / English</li>
 </ul>
-
 </section>
 
+<!-- Admission Form -->
+<section id="admission">
+<h2>Online Admission</h2>
+<input placeholder="Student Name" id="adname">
+<input placeholder="Mobile Number" id="admobile">
+<input placeholder="Course" id="adcourse">
+<button onclick="submitForm()">Submit</button>
+</section>
+
+<!-- Certificate Verification -->
+<section id="certificate">
+<h2>Certificate Verification</h2>
+<input id="certno" placeholder="Enter Certificate Number">
+<button onclick="verify()">Verify</button>
+<p id="certresult"></p>
+</section>
+
+<!-- Student Result -->
+<section id="result">
+<h2>Student Result</h2>
+<input id="roll" placeholder="Enter Roll Number">
+<button onclick="result()">Check</button>
+<p id="resultshow"></p>
+</section>
+
+<!-- Photo Gallery -->
 <section id="gallery">
-
 <h2>Photo Gallery</h2>
-
-<div style="text-align:center">
-
-<img id="slider" src="1738496830107.jpg" width="400">
-
+<div class="gallery">
+<img src="1738496830107.jpg" onclick="openImage(this)">
+<img src="1757075756800.jpg" onclick="openImage(this)">
+<img src="1757086969129.jpg" onclick="openImage(this)">
 </div>
-
+<div id="popup" onclick="closeImage()">
+<img id="popupimg">
+</div>
 </section>
 
+<!-- Typing Tool -->
+<section id="typing">
+<h2>Hindi / English Typing</h2>
+<textarea rows="6" placeholder="Start typing here..."></textarea>
+</section>
+
+<!-- Resume Creator -->
 <section id="resume">
-
 <h2>Resume Creator</h2>
-
 <input id="rname" placeholder="Full Name">
-
-<input id="rqual" placeholder="Qualification">
-
-<input id="rskill" placeholder="Skills">
-
+<input id="rdob" placeholder="Date of Birth">
+<input id="raddress" placeholder="Address">
+<input id="rphone" placeholder="Phone Number">
+<input id="remail" placeholder="Email">
+<textarea id="rcareer" rows="2" placeholder="Career Objective"></textarea>
+<textarea id="reducation" rows="4" placeholder="Education (10th, 12th, Graduation...)"></textarea>
+<input id="rskills" placeholder="Skills (comma separated)">
+<input id="rlanguages" placeholder="Languages Known">
+<input id="rhobbies" placeholder="Hobbies">
+<textarea id="rexperience" rows="4" placeholder="Work Experience / Projects"></textarea>
 <button onclick="makeResume()">Generate Resume</button>
-
-<div id="resumeview"></div>
-
+<button onclick="downloadResume()">Download PDF</button>
+<div id="resumeview" style="margin-top:20px;padding:10px;border:1px solid black;width:500px;background:#f9f9f9;"></div>
 </section>
 
+<!-- Student ID Card -->
 <section id="idcard">
-
-<h2>Student ID Card</h2>
-
+<h2>Student ID Card Generator</h2>
 <input id="sname" placeholder="Student Name">
-
 <input id="course" placeholder="Course">
-
 <input id="sid" placeholder="Student ID">
-
-<button onclick="makeID()">Generate</button>
-
-<div id="card">
-
+<input type="file" id="photo">
+<button onclick="makeID()">Generate ID</button>
+<button onclick="downloadID()">Download ID PDF</button>
+<div id="card" style="margin-top:20px;border:1px solid black;padding:10px;width:250px">
 <h3>Aditya Computer Academy</h3>
-
+<img id="showphoto" width="80">
 <p id="showname"></p>
 <p id="showcourse"></p>
 <p id="showsid"></p>
-
 </div>
-
 </section>
 
+<!-- Photo Tools -->
+<section id="phototool">
+<h2>Photo Editor Tools</h2>
+<p>Resize Photo | Passport Photo | Background Changer</p>
+</section>
+
+<!-- Contact -->
 <section id="contact">
-
 <h2>Contact</h2>
-
+<p>Aditya Computer Academy</p>
 <p>Shivpur Varanasi</p>
 <p>Phone: 6391264205</p>
-
+<iframe src="https://maps.google.com/maps?q=shivpur%20varanasi&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300"></iframe>
 </section>
 
+<!-- WhatsApp Button -->
+<a href="https://wa.me/916391264205" target="_blank" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:bold;">Chat on WhatsApp</a>
+
+<!-- Script -->
 <script>
-
-let photos=[
-"1738496830107.jpg",
-"1757075756800.jpg",
-"1757086969129.jpg"
-];
-
+// Slider
+let photos=["1738496830107.jpg","1757075756800.jpg","1757086969129.jpg"];
 let x=0;
-
 setInterval(function(){
-
-x++;
-
-if(x>=photos.length){
-x=0;
-}
-
-document.getElementById("slider").src=photos[x];
-
+    x++;
+    if(x>=photos.length)x=0;
+    document.getElementById("slider").src=photos[x];
 },3000);
 
+// Photo Gallery
+function openImage(img){
+    document.getElementById("popup").style.display="block";
+    document.getElementById("popupimg").src=img.src;
+}
+function closeImage(){
+    document.getElementById("popup").style.display="none";
+}
 
+// Admission Form
+function submitForm(){
+    let name=document.getElementById("adname").value;
+    let mobile=document.getElementById("admobile").value;
+    let course=document.getElementById("adcourse").value;
+    alert("Admission Submitted for "+name+" ("+mobile+") | Course: "+course);
+}
+
+// Certificate Verification
+function verify(){
+    let n=document.getElementById("certno").value;
+    if(n=="ACA001"){
+        document.getElementById("certresult").innerHTML="Certificate Valid";
+    }else{
+        document.getElementById("certresult").innerHTML="Certificate Not Found";
+    }
+}
+
+// Student Result
+function result(){
+    let r=document.getElementById("roll").value;
+    if(r=="101"){
+        document.getElementById("resultshow").innerHTML="Result: PASS";
+    }else{
+        document.getElementById("resultshow").innerHTML="Result Not Found";
+    }
+}
+
+// Resume Generator
 function makeResume(){
+    let name=document.getElementById("rname").value;
+    let dob=document.getElementById("rdob").value;
+    let address=document.getElementById("raddress").value;
+    let phone=document.getElementById("rphone").value;
+    let email=document.getElementById("remail").value;
+    let career=document.getElementById("rcareer").value;
+    let education=document.getElementById("reducation").value;
+    let skills=document.getElementById("rskills").value;
+    let languages=document.getElementById("rlanguages").value;
+    let hobbies=document.getElementById("rhobbies").value;
+    let experience=document.getElementById("rexperience").value;
 
-let name=document.getElementById("rname").value;
-let qual=document.getElementById("rqual").value;
-let skill=document.getElementById("rskill").value;
-
-document.getElementById("resumeview").innerHTML=
-"<h3>"+name+"</h3>"+
-"<p>"+qual+"</p>"+
-"<p>"+skill+"</p>";
-
+    document.getElementById("resumeview").innerHTML=
+    `<h2 style="text-align:center;">${name}</h2>
+    <p><strong>DOB:</strong> ${dob} | <strong>Phone:</strong> ${phone} | <strong>Email:</strong> ${email}</p>
+    <hr>
+    <h3>Career Objective</h3><p>${career}</p>
+    <hr>
+    <h3>Education</h3><p>${education.replace(/\n/g,"<br>")}</p>
+    <hr>
+    <h3>Skills</h3><p>${skills}</p>
+    <hr>
+    <h3>Languages Known</h3><p>${languages}</p>
+    <hr>
+    <h3>Hobbies</h3><p>${hobbies}</p>
+    <hr>
+    <h3>Work Experience / Projects</h3><p>${experience.replace(/\n/g,"<br>")}</p>`;
 }
 
+// Download Resume PDF
+function downloadResume(){
+    let element=document.getElementById("resumeview");
+    let opt={margin:0.5,filename:"Resume.pdf",html2canvas:{scale:2},jsPDF:{unit:"in",format:"letter",orientation:"portrait"}};
+    html2pdf().set(opt).from(element).save();
+}
+
+// ID Card Generator
 function makeID(){
+    let name=document.getElementById("sname").value;
+    let course=document.getElementById("course").value;
+    let sid=document.getElementById("sid").value;
+    let photo=document.getElementById("photo").files[0];
 
-document.getElementById("showname").innerText=
-document.getElementById("sname").value;
+    document.getElementById("showname").innerHTML="Name: "+name;
+    document.getElementById("showcourse").innerHTML="Course: "+course;
+    document.getElementById("showsid").innerHTML="ID: "+sid;
 
-document.getElementById("showcourse").innerText=
-document.getElementById("course").value;
-
-document.getElementById("showsid").innerText=
-document.getElementById("sid").value;
-
+    if(photo){
+        let reader=new FileReader();
+        reader.onload=function(e){
+            document.getElementById("showphoto").src=e.target.result;
+        }
+        reader.readAsDataURL(photo);
+    }
 }
 
+function downloadID(){
+    let element=document.getElementById("card");
+    let opt={margin:0.5,filename:"Student_ID.pdf",html2canvas:{scale:2},jsPDF:{unit:"in",format:"letter",orientation:"portrait"}};
+    html2pdf().set(opt).from(element).save();
+}
 </script>
 
 </body>
