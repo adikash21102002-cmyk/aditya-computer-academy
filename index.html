@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -67,6 +67,7 @@ cursor:pointer;
 <header>
 
 <h1>Aditya Computer Academy</h1>
+
 <p>Shivpur Varanasi | 6391264205</p>
 
 </header>
@@ -75,29 +76,12 @@ cursor:pointer;
 
 <a href="#about">About</a>
 <a href="#courses">Courses</a>
-<a href="#admission">Admission</a>
-<a href="#certificate">Certificate</a>
-<a href="#result">Result</a>
-<a href="#typing">Typing Test</a>
-<a href="#login">Student Login</a>
-<a href="#exam">Online Exam</a>
+<a href="#gallery">Gallery</a>
 <a href="#resume">Resume</a>
 <a href="#idcard">ID Card</a>
 <a href="#contact">Contact</a>
 
 </nav>
-
-<section>
-
-<h2 style="text-align:center;">Our Coaching Gallery</h2>
-
-<div style="text-align:center;">
-
-<img id="slider" src="1738496830107.jpg" width="500">
-
-</div>
-
-</section>
 
 <section id="about">
 
@@ -114,89 +98,23 @@ cursor:pointer;
 <ul>
 
 <li>CCC</li>
-<li>ADCA</li>
 <li>DCA</li>
+<li>ADCA</li>
 <li>Tally</li>
-<li>O Level</li>
 
 </ul>
 
 </section>
 
-<section id="admission">
+<section id="gallery">
 
-<h2>Online Admission</h2>
+<h2>Photo Gallery</h2>
 
-<input placeholder="Student Name">
-<input placeholder="Mobile Number">
-<input placeholder="Course">
+<div style="text-align:center">
 
-<button onclick="submitForm()">Submit</button>
+<img id="slider" src="1738496830107.jpg" width="400">
 
-</section>
-
-<section id="certificate">
-
-<h2>Certificate Verification</h2>
-
-<input id="certno">
-
-<button onclick="verify()">Verify</button>
-
-<p id="certresult"></p>
-
-</section>
-
-<section id="result">
-
-<h2>Student Result</h2>
-
-<input id="roll">
-
-<button onclick="result()">Check</button>
-
-<p id="resultshow"></p>
-
-</section>
-
-<section id="typing">
-
-<h2>Typing Test</h2>
-
-<p id="text">The quick brown fox jumps over the lazy dog</p>
-
-<textarea id="typingbox"></textarea>
-
-<button onclick="checkTyping()">Check Typing</button>
-
-<p id="resulttyping"></p>
-
-</section>
-
-<section id="login">
-
-<h2>Student Login</h2>
-
-<input id="username" placeholder="Username">
-<input id="password" type="password" placeholder="Password">
-
-<button onclick="login()">Login</button>
-
-<p id="loginresult"></p>
-
-</section>
-
-<section id="exam">
-
-<h2>Online Exam</h2>
-
-<p>Computer is an ?</p>
-
-<button onclick="checkExam('a')">Machine</button>
-<button onclick="checkExam('b')">Animal</button>
-<button onclick="checkExam('c')">Food</button>
-
-<p id="examresult"></p>
+</div>
 
 </section>
 
@@ -204,21 +122,13 @@ cursor:pointer;
 
 <h2>Resume Creator</h2>
 
-<input id="rname" placeholder="Name">
-<input id="rdob" placeholder="DOB">
-<input id="raddress" placeholder="Address">
-<input id="rphone" placeholder="Phone">
-<input id="remail" placeholder="Email">
+<input id="rname" placeholder="Full Name">
 
-<textarea id="rcareer" placeholder="Career Objective"></textarea>
+<input id="rqual" placeholder="Qualification">
 
-<textarea id="reducation" placeholder="Education"></textarea>
-
-<input id="rskills" placeholder="Skills">
+<input id="rskill" placeholder="Skills">
 
 <button onclick="makeResume()">Generate Resume</button>
-
-<button onclick="downloadResume()">Download PDF</button>
 
 <div id="resumeview"></div>
 
@@ -226,23 +136,19 @@ cursor:pointer;
 
 <section id="idcard">
 
-<h2>ID Card Generator</h2>
+<h2>Student ID Card</h2>
 
 <input id="sname" placeholder="Student Name">
+
 <input id="course" placeholder="Course">
+
 <input id="sid" placeholder="Student ID">
 
-<input type="file" id="photo">
-
-<button onclick="makeID()">Generate ID</button>
-
-<button onclick="downloadID()">Download PDF</button>
+<button onclick="makeID()">Generate</button>
 
 <div id="card">
 
 <h3>Aditya Computer Academy</h3>
-
-<img id="showphoto" width="80">
 
 <p id="showname"></p>
 <p id="showcourse"></p>
@@ -256,13 +162,61 @@ cursor:pointer;
 
 <h2>Contact</h2>
 
-<p>Aditya Computer Academy</p>
 <p>Shivpur Varanasi</p>
 <p>Phone: 6391264205</p>
 
 </section>
 
-<script src="script.js"></script>
+<script>
+
+let photos=[
+"1738496830107.jpg",
+"1757075756800.jpg",
+"1757086969129.jpg"
+];
+
+let x=0;
+
+setInterval(function(){
+
+x++;
+
+if(x>=photos.length){
+x=0;
+}
+
+document.getElementById("slider").src=photos[x];
+
+},3000);
+
+
+function makeResume(){
+
+let name=document.getElementById("rname").value;
+let qual=document.getElementById("rqual").value;
+let skill=document.getElementById("rskill").value;
+
+document.getElementById("resumeview").innerHTML=
+"<h3>"+name+"</h3>"+
+"<p>"+qual+"</p>"+
+"<p>"+skill+"</p>";
+
+}
+
+function makeID(){
+
+document.getElementById("showname").innerText=
+document.getElementById("sname").value;
+
+document.getElementById("showcourse").innerText=
+document.getElementById("course").value;
+
+document.getElementById("showsid").innerText=
+document.getElementById("sid").value;
+
+}
+
+</script>
 
 </body>
 </html>
