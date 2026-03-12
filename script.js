@@ -382,3 +382,14 @@ document.getElementById("slider").src = photos[x];
 
 },3000);
     
+function submitForm(){
+
+let name=document.getElementById("name").value;
+let mobile=document.getElementById("mobile").value;
+let course=document.getElementById("course").value;
+
+let msg="New Admission%0AName: "+name+"%0AMobile: "+mobile+"%0ACourse: "+course;
+
+window.open("https://wa.me/916391264205?text="+msg);
+
+}
