@@ -118,12 +118,18 @@ cursor:pointer;
 </section>
 <section id="gallery">
 
-<h2>Photo Gallery</h2>
+<h2 style="text-align:center;">Coaching Photo Gallery</h2>
 
-<div style="text-align:center">
+<div class="gallery">
 
-<img id="slider" src="1738496830107.jpg" width="400">
+<img src="1738496830107.jpg" onclick="openImage(this)">
+<img src="1757075756800.jpg" onclick="openImage(this)">
+<img src="1757086969129.jpg" onclick="openImage(this)">
 
+</div>
+
+<div id="popup" onclick="closeImage()">
+<img id="popupimg">
 </div>
 
 </section>
