@@ -92,7 +92,128 @@ button{
 
 <nav>
 <a href="#about">About</a>
-<a href="#courses">Courses</a>
+<section id="courses">
+  <h2>Courses</h2>
+  <ul>
+    <!-- ADCA -->
+    <li>
+      <span class="toggle" onclick="toggleCourse('adcaSyllabus','adcaArrow')">
+        ADCA <span id="adcaArrow">▼</span>
+      </span>
+      <ul id="adcaSyllabus" class="hiddenSyllabus">
+        <li>Basic Computer Knowledge
+          <ul>
+            <li>What is Computer</li>
+            <li>Types of Computer</li>
+            <li>Input / Output Devices</li>
+            <li>RAM, ROM, CPU</li>
+            <li>Operating System Basics</li>
+          </ul>
+        </li>
+        <li>Notepad</li>
+        <li>WordPad</li>
+        <li>MS Paint</li>
+        <li>MS Word</li>
+        <li>MS Excel</li>
+        <li>MS PowerPoint</li>
+        <li>Tally Prime</li>
+        <li>Photoshop</li>
+        <li>CorelDRAW</li>
+        <li>Internet
+          <ul>
+            <li>Gmail Creation</li>
+            <li>Email Sending</li>
+            <li>Software Download / Install / Uninstall</li>
+            <li>Use of AnyDesk</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <!-- DCA -->
+    <li>
+      <span class="toggle" onclick="toggleCourse('dcaSyllabus','dcaArrow')">
+        DCA <span id="dcaArrow">▼</span>
+      </span>
+      <ul id="dcaSyllabus" class="hiddenSyllabus">
+        <li>Fundamentals of Computer</li>
+        <li>MS Office Suite
+          <ul>
+            <li>MS Word</li>
+            <li>MS Excel</li>
+            <li>MS PowerPoint</li>
+            <li>MS Access</li>
+          </ul>
+        </li>
+        <li>Internet & Networking</li>
+        <li>Accounting Software (Tally Prime)</li>
+        <li>Graphic & Multimedia Tools (Photoshop, CorelDRAW)</li>
+        <li>Programming Basics (HTML/CSS, Python/C optional)</li>
+        <li>Practical Projects</li>
+      </ul>
+    </li>
+
+    <!-- CCC -->
+    <li>
+      <span class="toggle" onclick="toggleCourse('cccSyllabus','cccArrow')">
+        CCC <span id="cccArrow">▼</span>
+      </span>
+      <ul id="cccSyllabus" class="hiddenSyllabus">
+        <li>Fundamentals of IT</li>
+        <li>Operating System Basics</li>
+        <li>Word Processing (MS Word)</li>
+        <li>Spreadsheet (MS Excel)</li>
+        <li>Presentation Tools (MS PowerPoint)</li>
+        <li>Internet & Email</li>
+        <li>Security & Cyber Safety</li>
+        <li>Practical Applications</li>
+      </ul>
+    </li>
+
+    <!-- Other courses (simple list) -->
+    <li>Tally</li>
+    <li>MS Office</li>
+    <li>Hindi / English Typing</li>
+  </ul>
+</section>
+
+<script>
+function toggleCourse(syllabusId, arrowId) {
+  const syllabus = document.getElementById(syllabusId);
+  const arrow = document.getElementById(arrowId);
+  if(syllabus.style.maxHeight) {
+    // Collapse
+    syllabus.style.maxHeight = null;
+    arrow.textContent = "▼";
+  } else {
+    // Expand
+    syllabus.style.maxHeight = syllabus.scrollHeight + "px";
+    arrow.textContent = "▲";
+  }
+}
+</script>
+
+<style>
+/* Toggle style */
+.toggle {
+  cursor: pointer;
+  color: #0a4cff;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.toggle:hover {
+  text-decoration: underline;
+}
+
+/* Syllabus animation */
+.hiddenSyllabus {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-left: 20px;
+}
+</style>
 <a href="#admission">Admission</a>
 <a href="#certificate">Certificate</a>
 <a href="#result">Result</a>
