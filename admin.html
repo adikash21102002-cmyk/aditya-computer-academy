@@ -1,4 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+
+<!-- Firebase v8 (WORKING) -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
+</head>
+
+<body>
+
+<h2>🔐 Admin Login</h2>
+
+<input id="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<div id="panel" style="display:none;">
+  <h3>📚 Upload Notes</h3>
+
+  <input id="title" placeholder="Note Title"><br><br>
+  <input type="file" id="pdf"><br><br>
+
+  <button onclick="uploadPDF()">Upload Note</button>
+</div>
+
+<script>
+
+// 🔥 CONFIG
+var firebaseConfig = {
+  apiKey: "AIzaSyA8MTUuMQOBZC-WE_uuOZgeu75AVQTomjA",
+  authDomain: "adityacomputeracademy-5caba.firebaseapp.com",
+  projectId: "adityacomputeracademy-5caba",
+  storageBucket: "adityacomputeracademy-5caba.appspot.com",
+  messagingSenderId: "1005846724179",
+  appId: "1:1005846724179:web:b427d9e82e460db31050a6"
+};
+
+// INIT
+firebase.initializeApp(firebaseConfig);
+
+var auth = firebase.auth();
+var db = firebase.firestore();
+var storage = firebase.storage();
+
+// LOGIN FUNCTION
+function login(){
+  var emailVal = document.getElementById("email").value;
+  var passVal = document.getElementById("password").value;
+
+  auth.signInWithEmailAndPassword(emailVal, passVal)
+  .then(function(){
+    alert("Login Successful ✅");
+    document.getElementById("panel").style.display = "block";
+  })
+  .catch(function(error){
+    alert(error.message);
+  });
+}
+
+// UPLOAD PDF
+function uploadPDF(){
+  var file = document.getElementById("pdf").files[0];
+  var title = document.getElementById("title").value;
+
+  var storageRef = storage.ref("notes/" + file.name);
+
+  storageRef.put(file).then(function(){
+    storageRef.getDownloadURL().then(function(url){
+
+      db.collection("notes").add({
+        title: title,
+        link: url
+      });
+
+      alert("Note Uploaded 🚀");
+    });
+  });
+}
+
+</script>
+
+</body>
+</html>
