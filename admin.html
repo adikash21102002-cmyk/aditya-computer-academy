@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"></script>
+
+</head>
+
+<body>
+
+<h2>🔐 Admin Login</h2>
+
+<input id="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+<button onclick="login()">Login</button>
+
+<div id="panel" style="display:none;">
+
+<h3>📚 Upload Notes</h3>
+<input id="title" placeholder="Note Title"><br><br>
+<input type="file" id="pdf"><br><br>
+<button onclick="uploadPDF()">Upload Note</button>
+
+</div>
+
+<script>
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA8MTUuMQOBZC-WE_uuOZgeu75AVQTomjA",
+  authDomain: "adityacomputeracademy-5caba.firebaseapp.com",
+  projectId: "adityacomputeracademy-5caba",
+  storageBucket: "adityacomputeracademy-5caba.firebasestorage.app",
+  messagingSenderId: "1005846724179",
+  appId: "1:1005846724179:web:b427d9e82e460db31050a6"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+// 🔐 Login
+function login(){
+  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+  .then(()=>{
+    alert("Login Successful");
+    panel.style.display="block";
+  })
+  .catch(e=>alert(e.message));
+}
+
+// 📚 Upload PDF
+function uploadPDF(){
+  const file = pdf.files[0];
+  const ref = storage.ref("notes/"+file.name);
+
+  ref.put(file).then(()=>{
+    ref.getDownloadURL().then(url=>{
+      db.collection("notes").add({
+        title: title.value,
+        link: url
+      });
+      alert("Note Uploaded!");
+    });
+  });
+}
+
+</script>
+
+</body>
+</html>
